@@ -1,0 +1,83 @@
+# ~/.config/starship.toml
+add_newline = false
+format = """
+[](fg:#d6d6d6)\
+$os\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$localip\
+$cmd_duration\
+$time\
+[ ](fg:#2e2e2e)\
+\n$character"""
+
+# 显示当前目录
+[directory]
+style = "fg:#5c6a72 bg:#f0ece2"
+format = "[$path]($style)[](fg:#f0ece2)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+#os
+[os]
+style = "bg:#d6d6d6"
+format = '[[ $symbol](bg:#d6d6d6 fg:#090c0c)]($style)'
+disabled = false
+
+[os.symbol]
+Debian = ""
+
+[localip]
+ssh_only = true 
+format = "[IP:$localipv4](bold red) "
+disabled = false
+
+
+# Git 分支
+[git_branch]
+symbol = "🌱 "
+style = "fg:#9d4e58"
+format = "[$symbol$branch]($style) "
+
+# Git 状态
+[git_status]
+style = "fg:#e09f7d"
+format = "[($all_status$ahead_behind)]($style) "
+
+# Node.js
+[nodejs]
+symbol = " "
+style = "fg:#b18fcf"
+format = "[$symbol($version)]($style) "
+
+#time
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#2e2e2e)]($style)'
+
+#conda
+[conda]
+ignore_base=false
+
+# Python
+[python]
+symbol = "🐍 "
+style = "fg:#769fcd"
+format = "[$symbol$version]($style) "
+
+# 命令耗时
+[cmd_duration]
+min_time = 500
+style = "fg:#c08b5c"
+format = "[⏱ $duration]($style) "
+
+# 提示符符号（最后一行 ➜ 或 ✗）
+[character]
+success_symbol = "[➜](fg:#90a959 bold)"
+error_symbol = "[✗](fg:#d47766 bold)"
+
